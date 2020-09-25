@@ -11,50 +11,38 @@ public class EmployeeWageProblem {
 		public static void main(String[] args) {
 			// TODO Auto-generated method stub
 			
-			//Variable
-			int empWage = 0;
+			//Variables
 			int empHours = 0;
 			int totalWage = 0;
 			int noOfHour=0;
 			int noOfDays=0;
+			String empType;
 			
 			System.out.println("Welcome to Employee Wage Computation Program");
+			System.out.println("Day\tEmployee Hour\tEmployee Type");
 			
 			//Computation
-			int empCheck = (int)(Math.floor(Math.random()*10) % 3);
-			
-			switch(empCheck) {
-			case IS_PART_TIME :
-				System.out.println("Part Time Employee");
-				empHours = 4;
-				System.out.println("Days\tPerDayHour\tTotalWage");
-				while(noOfDays<20) {
-					noOfDays++;
-					empWage = empHours * EMP_RATE_PER_HOUR;
-					totalWage = 20*empWage;
-					System.out.println(noOfDays+"\t"+empHours+"\t"+empWage);
+			while(noOfHour<=HOURS_LIMIT && noOfDays<=WORKING_DAYS) {
+				
+				int empCheck = (int)(Math.floor(Math.random()*10) % 3);
+				noOfDays++;
+				switch(empCheck) {
+				case IS_PART_TIME :
+					empType = "Part Time and present";
+					empHours = 4;
+					break;
+				case IS_FULL_TIME :
+					empType = "Full Time and present";
+					empHours = 8;
+					break;
+				default:
+					empType = "Employee absent";
+					empHours = 0;	
 				}
-				System.out.println("Total wage for 20 days "+totalWage);
-				break;
-			case IS_FULL_TIME :
-				System.out.println("Full Time Employee");
-				empHours = 8;
-				System.out.println("Days\tPerDayHour\tTotalWage");
-				int i=1;
-				while(noOfHour<=100) {
-					i++;
-					empWage = empHours * EMP_RATE_PER_HOUR;
-					totalWage = 100*EMP_RATE_PER_HOUR;
-					System.out.println(i+"\t"+empHours+"\t"+empWage);
-					noOfHour+=8;
-				}
-				System.out.println("Total wage for 100 Hours "+totalWage);
-				break;
-			default:
-				System.out.println("Employee Absent");
-				empHours = 0;
-
+				noOfHour += empHours;
+				System.out.println(noOfDays+"\t"+empHours+"\t"+empType);
 			}
-			
+			totalWage = noOfHour*EMP_RATE_PER_HOUR;
+			System.out.println("Total emp Wage: "+totalWage);
 		}
 }
