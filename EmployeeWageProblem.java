@@ -5,6 +5,7 @@ public class EmployeeWageProblem {
 		public static final int IS_FULL_TIME = 1;
 		public static final int IS_PART_TIME = 2;
 		public static final int EMP_RATE_PER_HOUR = 20;
+		public static final int WORKING_DAYS = 20;
 
 		public static void main(String[] args) {
 			// TODO Auto-generated method stub
@@ -12,6 +13,7 @@ public class EmployeeWageProblem {
 			//Variable
 			int empWage = 0;
 			int empHours = 0;
+			int totalWage = 0;
 			
 			System.out.println("Welcome to Employee Wage Computation Program");
 			
@@ -30,12 +32,12 @@ public class EmployeeWageProblem {
 			default:
 				System.out.println("Employee Absent");
 				empHours = 0;
+
 			}
-			
 			empWage = empHours * EMP_RATE_PER_HOUR;
-			System.out.println("Wage : "+empWage); 	
-				
-
+			totalWage = empWage*WORKING_DAYS;
+			System.out.println("Wage per day: "+empWage); 
+			System.out.println("Wage per month: "+totalWage);
+			
 		}
-
 }
