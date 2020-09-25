@@ -7,18 +7,16 @@ public class EmployeeWageProblem {
 		public static final int EMP_RATE_PER_HOUR = 20;
 		public static final int WORKING_DAYS = 20;
 		public static final int HOURS_LIMIT = 100;
-
-		public static void main(String[] args) {
-			// TODO Auto-generated method stub
-			
-			//Variables
-			int empHours = 0;
-			int totalWage = 0;
-			int noOfHour=0;
-			int noOfDays=0;
-			String empType;
-			
-			System.out.println("Welcome to Employee Wage Computation Program");
+		
+		//Variables
+		private int empHours = 0;
+		private int totalWage = 0;
+		private int noOfHour=0;
+		private int noOfDays=0;
+		private String empType;
+		
+		public void computeWage()
+		{
 			System.out.println("Day\tEmployee Hour\tEmployee Type");
 			
 			//Computation
@@ -26,6 +24,7 @@ public class EmployeeWageProblem {
 				
 				int empCheck = (int)(Math.floor(Math.random()*10) % 3);
 				noOfDays++;
+				//Check whether employee is part time, full time or absent
 				switch(empCheck) {
 				case IS_PART_TIME :
 					empType = "Part Time and present";
@@ -44,5 +43,14 @@ public class EmployeeWageProblem {
 			}
 			totalWage = noOfHour*EMP_RATE_PER_HOUR;
 			System.out.println("Total emp Wage: "+totalWage);
+		}
+
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+			
+			System.out.println("Welcome to Employee Wage Computation Program");
+			EmployeeWageProblem object = new EmployeeWageProblem();
+			object.computeWage();
+			
 		}
 }
