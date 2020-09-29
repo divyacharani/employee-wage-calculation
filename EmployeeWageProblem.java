@@ -16,11 +16,20 @@ public class EmployeeWageProblem implements EmployeeWages{
 		companyList.add(obj);
 		
 	} 
-	//Method to store Total wage along with company 
-	public void totalWageWtihCompany() {
+	//Method to get total wage along when queried company
+	public Integer totalWageWtihCompany(String companyName) {
 		for(Company obj : companyList) {
 			companyToWage.put(obj,obj.getTotalWage());
 		}
+		Integer totalWage;
+		for(Company obj : companyToWage.keySet()) {
+			if(obj.getCompanyName().equals(companyName)) {
+				totalWage = obj.getTotalWage();
+				return totalWage;
+			}
+		}
+		return -1;
+		
 	}
 	public void wageComputation() {
 		for(Company obj : companyList) {
@@ -61,7 +70,7 @@ public class EmployeeWageProblem implements EmployeeWages{
 	//Main Method
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Scanner sc = new Scanner(System.in);
 		//Welcome message
 		System.out.println("Welcome to Employee Wage Computation Program");
 		
@@ -70,8 +79,14 @@ public class EmployeeWageProblem implements EmployeeWages{
 		employeeWageObj.addCompany("Company-B",15,20,80);
 		employeeWageObj.addCompany("Company-C",20,15,100);
 		employeeWageObj.wageComputation();
-		
-		
+		System.out.println("Enter name of the company to get total wage ");
+		String compName = sc.nextLine();
+		Integer totWage = employeeWageObj.totalWageWtihCompany(compName);
+		if(totWage == -1)
+			System.out.println("There is no company with name "+compName);
+		else
+			System.out.println("The total wage of company is "+totWage);
+		sc.close();
 
 	}
 }
