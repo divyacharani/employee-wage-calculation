@@ -1,4 +1,4 @@
-package com.bridgelabz.employeeWages;
+ package com.bridgelabz.employeeWages;
 
 public class Company {
 	//Constants
@@ -10,10 +10,7 @@ public class Company {
 	private int empRatePerHour;
 	private int workingDays;
 	private int hoursLimit;
-	private int empHours;
 	private int totalWage;
-	private int noOfHour;
-	private int noOfDays;
 	private String empType;
 	
 	//Constructor
@@ -26,7 +23,9 @@ public class Company {
 	
 	//Computation of employee wages
 	public void computeWage() {
-		System.out.println("Wages for "+companyName+" is");
+		//Variables
+		int empHours=0, noOfHour=0, noOfDays=0;
+		System.out.println("Daily wages for "+companyName+" is");
 		System.out.println("Day\tEmployee Hour\tEmployee Type");
 		while(noOfHour<=hoursLimit && noOfDays<=workingDays) {
 			int empCheck = (int)(Math.floor(Math.random()*10) % 3);
@@ -49,7 +48,10 @@ public class Company {
 			System.out.println(noOfDays+"\t"+empHours+"\t"+empType);
 		}
 		totalWage = noOfHour*empRatePerHour;
-		System.out.println("Total emp Wage: "+totalWage);
+		
+	}
+	public String toString() {
+		return "Total Employee wage for Company "+companyName+" is "+totalWage;
 	}
 
 
