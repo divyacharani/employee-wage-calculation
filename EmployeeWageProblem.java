@@ -8,11 +8,19 @@ public class EmployeeWageProblem implements EmployeeWages{
 
 	//Attributes
 	private ArrayList<Company> companyList = new ArrayList<Company>();
+	private Map<Company,Integer> companyToWage=new HashMap<Company,Integer>();
 	
 	//Method to add company object to companyArray
 	public void addCompany(String companyName, int empRatePerHour, int workingDays, int hoursLimit) {
 		Company obj = new Company(companyName,empRatePerHour,workingDays,hoursLimit);
 		companyList.add(obj);
+		
+	} 
+	//Method to store Total wage along with company 
+	public void totalWageWtihCompany() {
+		for(Company obj : companyList) {
+			companyToWage.put(obj,obj.getTotalWage());
+		}
 	}
 	public void wageComputation() {
 		for(Company obj : companyList) {
