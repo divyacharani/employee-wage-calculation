@@ -1,4 +1,5 @@
 package com.bridgelabz.employeeWages;
+import java.util.*;
 
 public class EmployeeWageProblem implements EmployeeWages{
 	//Constants
@@ -6,18 +7,17 @@ public class EmployeeWageProblem implements EmployeeWages{
 	public static final int IS_PART_TIME = 2;
 
 	//Attributes
-	private int noOfCompany = 0;
-	private Company[] companyArray = new Company[3];
+	private ArrayList<Company> companyList = new ArrayList<Company>();
 	
 	//Method to add company object to companyArray
 	public void addCompany(String companyName, int empRatePerHour, int workingDays, int hoursLimit) {
-		companyArray[noOfCompany] = new Company(companyName,empRatePerHour,workingDays,hoursLimit);
-		noOfCompany++;
+		Company obj = new Company(companyName,empRatePerHour,workingDays,hoursLimit);
+		companyList.add(obj);
 	}
 	public void wageComputation() {
-		for(int i=0;i<noOfCompany;i++) {
-			this.computeWage(companyArray[i]);
-			System.out.println(companyArray[i]);
+		for(Company obj : companyList) {
+			this.computeWage(obj);
+			System.out.println(obj);
 		}
 	}
 	//Method to Compute of employee wages
