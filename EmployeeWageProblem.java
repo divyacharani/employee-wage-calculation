@@ -1,6 +1,6 @@
 package com.bridgelabz.employeeWages;
 
-public class EmployeeWageProblem {
+public class EmployeeWageProblem implements EmployeeWages{
 	//Constants
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
@@ -9,6 +9,7 @@ public class EmployeeWageProblem {
 	private int noOfCompany = 0;
 	private Company[] companyArray = new Company[3];
 	
+	//Method to add company object to companyArray
 	public void addCompany(String companyName, int empRatePerHour, int workingDays, int hoursLimit) {
 		companyArray[noOfCompany] = new Company(companyName,empRatePerHour,workingDays,hoursLimit);
 		noOfCompany++;
@@ -19,8 +20,7 @@ public class EmployeeWageProblem {
 			System.out.println(companyArray[i]);
 		}
 	}
-
-	//Computation of employee wages
+	//Method to Compute of employee wages
 	public void computeWage(Company obj) {
 		//Variables
 		int empHours=0, noOfHour=0, noOfDays=0;
