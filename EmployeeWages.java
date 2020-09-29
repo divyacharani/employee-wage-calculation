@@ -7,6 +7,6 @@ public interface EmployeeWages {
 	public void wageComputation();
 	//Method to Compute of employee wages
 	public void computeWage(Company object);
-	//Method to store total wage along with company
-	public void totalWageWtihCompany() ;
+	//Method to get total wage along when queried company
+	public Integer totalWageWtihCompany(String companyName) ;
 }
